@@ -46,4 +46,4 @@ for mkv in mkv_files:
     result.to_srt_vtt(srt_path, word_level=False)
     print(f'Subtitles are ready for {os.path.basename(mkv)}')
 
-os.system("shutdown /s /t 0")
+# os.system("shutdown /s /t 0") # This is used to shutdown the host computer when all work is done
