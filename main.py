@@ -8,7 +8,7 @@ import sys
 args = sys.argv
 other_args = []
 models = ['tiny', 'base', 'small', 'medium', 'large-v1', 'large-v2'],
-model_str = "medium.en"
+model_str = "medium.en" # This is the maximum usable on 8Go VRAM, however, differences should not be too big to care.
 if len(args) == 1:
     mkv_files = glob.glob("X:\Community\Community.S01-S06.720p.WEB.DL.nHD.x264-NhaNc3\*.mkv")
 else:
@@ -39,7 +39,7 @@ for mkv in mkv_files:
     result = model.transcribe(mkv,
                               language='en',
                               suppress_silence=True,
-                            #   ts_num=8,
+                            #   ts_num=16, # This can not be used on 8Go VRAM but should allow for better silence detection and suppression
                               demucs=True,
                               )
     print(f'{datetime.datetime.now()}: End transcription')
